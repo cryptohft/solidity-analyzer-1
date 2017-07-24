@@ -1,6 +1,5 @@
 const util = require('util');
 const parser     = require("solidity-parser");
-const asciiTable = require('ascii-table');
 
 if(process.argv.length < 3) {
   console.log("Error: Missing argument for sol file to scan");
@@ -298,7 +297,7 @@ function findUnsafeCalls(){
 						variable.visibility != "public"){
 						if (funct.visibility == "public"){
 							unsafes.push({call: funct.name, modified: modifiedVar.name});
-							console.info("Unsafe modification of '"+modifiedVar.name+"' inside '"+funct.name+"'." + funct.visibility);
+							console.info("Unsafe modification of '"+modifiedVar.name+"' inside '"+funct.name+"'.");
 						} else {						
 							// indirectly called by a public function
 							var visiteds = [funct.name];
@@ -316,7 +315,7 @@ function findUnsafeCalls(){
 								if (!isVisited){
 									if (visiting.visibility == "public"){
 										unsafes.push({call: visiting.name, modified: modifiedVar.name});
-										console.info("Unsafe modification2 of '"+modifiedVar.name+"' indirectly from '"+visiting.name+"'.");
+										console.info("Unsafe modification of '"+modifiedVar.name+"' indirectly from '"+visiting.name+"'.");
 									}
 									visiteds.push(visiting.name);
 									var tobeProcesseds = functionsCallingGivenFunction(visiting.name);

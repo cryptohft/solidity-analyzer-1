@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vmontagh/solidity-analyzer/issues"
   },
-  "homepage": "https://github.com/vmontagh/solidity-analyzer"
+  "homepage": "https://github.com/vmontagh/solidity-analyzer",
+  "dependencies": {
+    "solidity-parser": "^0.3.0"
+  }
 }
