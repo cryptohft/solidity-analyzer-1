@@ -6,7 +6,7 @@ contract MyContract {
     owner = i_owner;
   }
   
-  function restetOwner() {
+  function resetOwner() {
   	init(0);
   }
 }

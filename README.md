@@ -21,14 +21,14 @@ contract MyContract {
     owner = i_owner;
   }
   
-  function restetOwner() {
+  function resetOwner() {
   	owner = 0;
   }
 }
 ```
 the analyzer returns the following report:
 ```Shell
-Unsafe modification of 'owner' inside 'restetOwner'.
+Unsafe modification of 'owner' inside 'resetOwner'.
 ```
 
 Or the analyzer finds the public methods that could indirectly alter any sensitive variable.
@@ -40,7 +40,7 @@ contract MyContract {
     owner = i_owner;
   }
   
-  function restetOwner() {
+  function resetOwner() {
   	init(0);
   }
 }
@@ -48,7 +48,7 @@ contract MyContract {
 The Warning is:
 
 ```shell
-Unsafe modification of 'owner' indirectly from 'restetOwner'.
+Unsafe modification of 'owner' indirectly from 'resetOwner'.
 ```
 
 
